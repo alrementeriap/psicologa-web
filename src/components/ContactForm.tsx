@@ -68,8 +68,8 @@ export default function ContactForm() {
         consent: false,
       });
     } catch (error) {
-      setStatus("error");
       console.error(error);
+      setStatus("error");
     }
   };
 
@@ -81,49 +81,62 @@ export default function ContactForm() {
           opacityRange={[0.35, 1, 1]}
           scaleRange={[0.975, 1, 1]}
         >
-          <div className="card-soft p-8 md:p-12">
+          <div className="card-soft">
             <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
               <div>
                 <p className="eyebrow">Contacto</p>
-                <h2 className="section-title">
+
+                <h2 className="section-title mt-3">
                   Solicita una primera sesión o escríbeme si tienes dudas
                 </h2>
-                <p className="body-copy mt-4">
+
+                <p className="body-copy mt-5 max-w-xl">
                   Puedes completar este formulario y me pondré en contacto contigo
                   lo antes posible.
                 </p>
 
-                <ScrollLinked
-                  yRange={[40, 0, -10]}
-                  opacityRange={[0.5, 1, 1]}
-                  scaleRange={[0.99, 1, 1]}
-                >
-                  <div className="mt-8 space-y-5 rounded-[24px] border border-[var(--line)] bg-[var(--warm-soft)] p-6 hover-lift">
-                    <div>
-                      <p className="text-sm font-medium text-[#17202b]">Email</p>
-                      <p className="mt-1 text-[#4b5563]">pr.banski@gmail.com</p>
-                    </div>
+                <div className="mt-10 rounded-[26px] bg-[var(--warm-soft)] p-8 md:p-9">
+                  <p className="text-sm font-medium text-[#374151]">
+                    También puedes escribirme directamente:
+                  </p>
 
+                  <div className="mt-7 space-y-7">
                     <div>
-                      <p className="text-sm font-medium text-[#17202b]">WhatsApp / Teléfono</p>
-                      <p className="mt-1 text-[#4b5563]">+34 633944311</p>
-                    </div>
-
-                    <div>
-                      <p className="text-sm font-medium text-[#17202b]">
-                        Horario de respuesta
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7280]">
+                        Email
                       </p>
-                      <p className="mt-1 text-[#4b5563]">
+                      <p className="mt-2 text-lg font-medium text-[#17202b]">
+                        pr.banski@gmail.com
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7280]">
+                        WhatsApp / Teléfono
+                      </p>
+                      <p className="mt-2 text-lg font-medium text-[#17202b]">
+                        +34 633 944 311
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6b7280]">
+                        Horario habitual de respuesta
+                      </p>
+                      <p className="mt-2 text-base text-[#374151]">
                         Lunes a sábado, de 9:00 a 20:00
                       </p>
                     </div>
                   </div>
-                </ScrollLinked>
+                </div>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="card-content">
                 <div>
-                  <label htmlFor="full_name" className="mb-2 block text-sm font-medium text-[#374151]">
+                  <label
+                    htmlFor="full_name"
+                    className="mb-2 block text-sm font-medium text-[#374151]"
+                  >
                     Nombre completo
                   </label>
                   <input
@@ -139,7 +152,10 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-medium text-[#374151]">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-medium text-[#374151]"
+                  >
                     Correo electrónico
                   </label>
                   <input
@@ -155,7 +171,10 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="mb-2 block text-sm font-medium text-[#374151]">
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-sm font-medium text-[#374151]"
+                  >
                     Teléfono
                   </label>
                   <input
@@ -170,7 +189,10 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="consultation_reason" className="mb-2 block text-sm font-medium text-[#374151]">
+                  <label
+                    htmlFor="consultation_reason"
+                    className="mb-2 block text-sm font-medium text-[#374151]"
+                  >
                     Motivo principal de consulta
                   </label>
                   <input
@@ -185,7 +207,10 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="modality" className="mb-2 block text-sm font-medium text-[#374151]">
+                  <label
+                    htmlFor="modality"
+                    className="mb-2 block text-sm font-medium text-[#374151]"
+                  >
                     Modalidad
                   </label>
                   <select
@@ -202,7 +227,10 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="mb-2 block text-sm font-medium text-[#374151]">
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block text-sm font-medium text-[#374151]"
+                  >
                     Cuéntame brevemente en qué puedo ayudarte
                   </label>
                   <textarea

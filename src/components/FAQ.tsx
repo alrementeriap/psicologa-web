@@ -12,11 +12,6 @@ const faqs = [
       "Sí. El acompañamiento está dirigido a adolescentes y personas adultas, adaptando el proceso terapéutico al momento vital y a las necesidades de cada caso.",
   },
   {
-    question: "¿La primera sesión tiene coste?",
-    answer:
-      "No. La primera sesión es gratuita y sin compromiso. Sirve para conocernos, explorar qué te preocupa y valorar si este proceso terapéutico puede ser adecuado para ti.",
-  },
-  {
     question: "¿Cuánto dura una sesión?",
     answer:
       "Las sesiones tienen una duración aproximada de 50 a 55 minutos.",
@@ -45,10 +40,14 @@ export default function FAQ() {
           <div className="max-w-2xl">
             <p className="eyebrow">Preguntas frecuentes</p>
             <h2 className="section-title">Dudas habituales antes de empezar</h2>
+            <p className="body-copy mt-5">
+              Aquí encontrarás respuestas breves a algunas de las preguntas más
+              habituales antes de iniciar el proceso.
+            </p>
           </div>
         </ScrollLinked>
 
-        <div className="mt-10 space-y-4">
+        <div className="mt-10 grid gap-4">
           {faqs.map((faq, index) => (
             <ScrollLinked
               key={faq.question}
@@ -56,11 +55,13 @@ export default function FAQ() {
               opacityRange={[0.3, 1, 1]}
               scaleRange={[0.97, 1, 1]}
             >
-              <div className="card-soft p-8 hover-lift">
-                <h3 className="text-xl font-semibold text-[#17202b]">
+              <div className="card-soft p-8">
+                <h3 className="text-xl font-semibold leading-tight text-[#17202b]">
                   {faq.question}
                 </h3>
-                <p className="mt-4 leading-8 text-[#4b5563]">{faq.answer}</p>
+                <p className="mt-4 max-w-4xl leading-8 text-[#4b5563]">
+                  {faq.answer}
+                </p>
               </div>
             </ScrollLinked>
           ))}

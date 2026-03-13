@@ -6,12 +6,12 @@ const steps = [
     text: "Puedes escribirme a través del formulario, por email o por WhatsApp para contarme brevemente tu situación o resolver tus dudas iniciales.",
   },
   {
-    title: "Primera sesión gratuita",
-    text: "La primera sesión es gratuita y sin compromiso. Nos servirá para conocernos, explorar qué te preocupa y valorar si este proceso terapéutico puede ser adecuado para ti.",
+    title: "Primera sesión",
+    text: "La primera sesión es gratuita y sin compromiso. Nos servirá para conocernos, explorar qué te preocupa y valorar si este proceso puede encajar contigo.",
   },
   {
-    title: "Proceso terapéutico",
-    text: "Si decides continuar, trabajaremos con un ritmo adaptado a tu momento y a tus necesidades, desde una relación terapéutica basada en la empatía y la comprensión.",
+    title: "Continuidad del proceso",
+    text: "Si decides continuar, trabajaremos con un ritmo adaptado a tu momento y a tus necesidades. La frecuencia de las sesiones se valora de forma individual.",
   },
 ];
 
@@ -40,27 +40,18 @@ export default function Process() {
               opacityRange={[0.3, 1, 1]}
               scaleRange={[0.96, 1, 1]}
             >
-              <div className="card-soft p-8 hover-lift">
+              <div className="card-soft hover-lift p-8">
                 <p className="eyebrow">Paso {index + 1}</p>
-                <h3 className="mt-3 text-xl font-semibold text-[#17202b]">
+
+                <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#17202b]">
                   {step.title}
                 </h3>
+
                 <p className="mt-4 leading-8 text-[#4b5563]">{step.text}</p>
               </div>
             </ScrollLinked>
           ))}
         </div>
-
-        <ScrollLinked
-          yRange={[40, 0, -12]}
-          opacityRange={[0.5, 1, 1]}
-          scaleRange={[0.99, 1, 1]}
-        >
-          <p className="mt-8 max-w-3xl leading-8 text-[#4b5563]">
-            La frecuencia de las sesiones se valora de forma individual, según el
-            momento y las necesidades de cada persona.
-          </p>
-        </ScrollLinked>
       </div>
     </section>
   );

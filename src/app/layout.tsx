@@ -1,10 +1,24 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import { Inter, Cormorant_Garamond } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Pablo Banski Martínez | Psicólogo sanitario online",
+  title: "Pablo Banski Martínez | Psicólogo sanitario",
   description:
-    "Psicólogo sanitario online para adolescentes y adultos. Acompañamiento en duelo, ansiedad y gestión emocional. Primera sesión gratuita y sin compromiso.",
+    "Psicología online para adolescentes y adultos. Acompañamiento en duelo, ansiedad y gestión emocional.",
 };
 
 export default function RootLayout({
@@ -14,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body className={`${inter.variable} ${cormorant.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

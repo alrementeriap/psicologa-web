@@ -1,20 +1,20 @@
 "use client";
 
-import { ReactNode, useRef } from "react";
+import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+
+type Pair = [number, number];
 
 type ParallaxShapeProps = {
   className?: string;
-  yRange?: [number, number];
-  rotateRange?: [number, number];
-  children?: ReactNode;
+  yRange?: Pair;
+  rotateRange?: Pair;
 };
 
 export default function ParallaxShape({
   className = "",
-  yRange = [-60, 60],
-  rotateRange = [-8, 8],
-  children,
+  yRange = [-30, 30],
+  rotateRange = [-4, 4],
 }: ParallaxShapeProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const reduceMotion = useReducedMotion();
@@ -28,16 +28,8 @@ export default function ParallaxShape({
   const rotate = useTransform(scrollYProgress, [0, 1], rotateRange);
 
   if (reduceMotion) {
-    return (
-      <div ref={ref} className={className}>
-        {children}
-      </div>
-    );
+    return <div ref={ref} className={className} />;
   }
 
-  return (
-    <motion.div ref={ref} className={className} style={{ y, rotate }}>
-      {children}
-    </motion.div>
-  );
+  return <motion.div ref={ref} className={className} style={{ y, rotate }} />;
 }

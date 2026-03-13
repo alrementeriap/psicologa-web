@@ -12,11 +12,9 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(23,32,43,0.06)] bg-[rgba(250,247,242,0.85)] backdrop-blur-xl">
-      <div className="container-page px-6 py-4 md:px-12 lg:px-24">
-        <div className="flex items-center justify-between">
-
-          {/* LOGO */}
+    <header className="fixed inset-x-0 top-0 z-[100] border-b border-[rgba(23,32,43,0.06)] bg-[rgba(255,255,255,0.82)] backdrop-blur-xl">
+      <div className="container-page px-6 py-3 md:px-12 lg:px-24">
+        <div className="flex items-center justify-between gap-6">
           <a
             href="#top"
             className="text-[15px] font-semibold tracking-[0.03em] text-[#17202b]"
@@ -24,8 +22,7 @@ export default function Header() {
             Pablo Banski Martínez
           </a>
 
-          {/* NAV */}
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-7 md:flex">
             {navItems.map((item) => (
               <motion.a
                 key={item.href}
@@ -39,17 +36,15 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA */}
           <motion.a
             href="#contacto"
-            className="btn-primary text-sm"
-            whileHover={{ y: -2, scale: 1.02 }}
+            className="inline-flex min-h-[42px] items-center justify-center rounded-[16px] border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[#17202b] shadow-sm transition hover:bg-[#faf7f2]"
+            whileHover={{ y: -1 }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.18 }}
           >
             Primera sesión
           </motion.a>
-
         </div>
       </div>
     </header>

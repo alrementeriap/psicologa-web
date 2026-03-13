@@ -1,20 +1,17 @@
 "use client";
 
 import { ReactNode, useRef } from "react";
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+
+type Triple = [number, number, number];
 
 type ScrollLinkedProps = {
   children: ReactNode;
   className?: string;
-  offset?: NonNullable<Parameters<typeof useScroll>[0]>["offset"];
-  yRange?: [number, number, number];
-  opacityRange?: [number, number, number];
-  scaleRange?: [number, number, number];
+  offset?: [string, string];
+  yRange?: Triple;
+  opacityRange?: Triple;
+  scaleRange?: Triple;
 };
 
 export default function ScrollLinked({
@@ -30,7 +27,7 @@ export default function ScrollLinked({
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset,
+    offset: offset as any,
   });
 
   const y = useTransform(scrollYProgress, [0, 0.2, 1], yRange);
@@ -46,11 +43,7 @@ export default function ScrollLinked({
   }
 
   return (
-    <motion.div
-      ref={ref}
-      className={className}
-      style={{ y, opacity, scale }}
-    >
+    <motion.div ref={ref} className={className} style={{ y, opacity, scale }}>
       {children}
     </motion.div>
   );
