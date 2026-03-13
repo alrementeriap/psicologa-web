@@ -4,11 +4,15 @@
   --bg: #f6f1ea;
   --surface: #fffdf9;
   --card: #ffffff;
-  --text: #1f2937;
-  --muted: #5b6472;
-  --line: #e5ddd2;
-  --accent: #3e6b61;
-  --accent-soft: #dfeae6;
+  --text: #1e2430;
+  --muted: #5f6875;
+  --line: #e8ddd0;
+  --accent: #416b62;
+  --accent-soft: #dfe9e5;
+  --warm-soft: #f2e7dc;
+  --terracotta: #c56a4a;
+  --success: #166534;
+  --error: #b91c1c;
 }
 
 html {
@@ -23,7 +27,7 @@ body {
 }
 
 section {
-  scroll-margin-top: 96px;
+  scroll-margin-top: 120px;
 }
 
 input,
@@ -47,7 +51,7 @@ textarea::placeholder {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 32px;
-  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.05);
+  box-shadow: 0 8px 28px rgba(31, 41, 55, 0.05);
 }
 
 .eyebrow {
@@ -57,27 +61,49 @@ textarea::placeholder {
   color: var(--muted);
 }
 
+.section-title {
+  margin-top: 16px;
+  font-size: 2rem;
+  line-height: 1.12;
+  font-weight: 600;
+  color: #17202b;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.body-copy {
+  line-height: 1.9;
+  color: #4b5563;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 48px;
   border-radius: 18px;
   padding: 0.9rem 1.3rem;
   font-weight: 600;
   background: var(--accent);
   color: white;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
 .btn-primary:hover {
   opacity: 0.92;
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 48px;
   border-radius: 18px;
   padding: 0.9rem 1.3rem;
   font-weight: 600;
@@ -85,9 +111,126 @@ textarea::placeholder {
   color: var(--text);
   border: 1px solid var(--line);
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: background 220ms ease, transform 220ms ease;
 }
 
 .btn-secondary:hover {
-  background: #f8f6f2;
+  background: #faf7f2;
+  transform: translateY(-1px);
+}
+
+.field {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 18px;
+  border: 1px solid #d8d2c9;
+  background: white;
+  padding: 14px 16px;
+  color: #17202b;
+  outline: none;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.fade-in-up {
+  animation: fadeInUp 320ms ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.abstract-dot {
+  position: absolute;
+  border-radius: 9999px;
+  opacity: 0.9;
+  filter: blur(0.2px);
+}
+
+.abstract-ring {
+  position: absolute;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(197, 106, 74, 0.35);
+}
+
+.hero-art-circle {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 84px;
+  height: 84px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 30% 30%, #d98061, var(--terracotta));
+  box-shadow: 0 10px 30px rgba(197, 106, 74, 0.18);
+}
+
+.hero-art-shape {
+  position: absolute;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(65, 107, 98, 0.9), rgba(65, 107, 98, 0.65));
+  opacity: 0.9;
+}
+.hover-lift {
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(31, 41, 55, 0.08);
+}
+
+.float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+.float-gentle-delayed {
+  animation: floatGentle 7.5s ease-in-out infinite;
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.art-image-soft {
+  border-radius: 28px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(31, 41, 55, 0.08);
+}
+
+.art-fade-mask {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.78));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.78));
+}
+
+.hero-art-glow {
+  position: absolute;
+  inset: auto auto 8% 8%;
+  width: 180px;
+  height: 180px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(198, 106, 74, 0.18), rgba(198, 106, 74, 0));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-art-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
 }
