@@ -18,9 +18,9 @@ export default function ScrollLinked({
   children,
   className = "",
   offset = ["start 92%", "end 8%"],
-  yRange = [80, 0, -30],
-  opacityRange = [0.1, 1, 1],
-  scaleRange = [0.97, 1, 1],
+  yRange = [48, 0, -12],
+  opacityRange = [1, 1, 1],
+  scaleRange = [0.995, 1, 1],
 }: ScrollLinkedProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const reduceMotion = useReducedMotion();
@@ -30,7 +30,7 @@ export default function ScrollLinked({
     offset: offset as any,
   });
 
-  const y = useTransform(scrollYProgress, [0, 0.2, 1], yRange);
+  const y = useTransform(scrollYProgress, [0, 0.22, 1], yRange);
   const opacity = useTransform(scrollYProgress, [0, 0.18, 1], opacityRange);
   const scale = useTransform(scrollYProgress, [0, 0.25, 1], scaleRange);
 
@@ -43,7 +43,11 @@ export default function ScrollLinked({
   }
 
   return (
-    <motion.div ref={ref} className={className} style={{ y, opacity, scale }}>
+    <motion.div
+      ref={ref}
+      className={className}
+      style={{ y, opacity, scale }}
+    >
       {children}
     </motion.div>
   );
